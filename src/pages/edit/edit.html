@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon ion-home custom-icon"></ion-icon>
+    </button>
+    <ion-title>
+   Edit Reminder 🖌
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+    <ion-list inset>
+        <ion-item *ngFor="let reminder of reminder" (click)="editDetail(reminder)">
+         <ion-avatar item-left>
+            📝
+        </ion-avatar>
+          <h2> {{ reminder.Name }}</h2>
+          <p>{{ reminder.Date | date:'yMMMMd' }}</p>
+        </ion-item>
+      </ion-list>
+</ion-content>

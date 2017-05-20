@@ -1,0 +1,51 @@
+<ion-header>  
+  <ion-navbar>
+       <ion-buttons end>
+      <button ion-button (click)="dismiss()" class="icon ion-home custom-icon">
+      Close
+    </button>
+       </ion-buttons>
+    <ion-title>Edit details 🖌</ion-title>
+    <ion-buttons end *ngIf="!isNew">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background">  
+    <ion-list>
+        <ion-item>
+            <ion-label>📚 SubjectName:</ion-label>
+            <ion-input text-right type="text" [(ngModel)]="reminder.Name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>📅 Deadline:</ion-label>
+            <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
+        </ion-item>
+   
+        <ion-item no-lines>
+            <ion-label>📃 Description:</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-textarea text-left type="text" [(ngModel)]="reminder.Name2" ></ion-textarea>
+        </ion-item>
+       
+        <ion-item>
+            <ion-label>🗂 Category</ion-label>
+                <ion-select [(ngModel)]="reminder.Cat" interface="popover">
+                <ion-option *ngFor="let c of category" [value]="c.cat" checked="false">{{c.cat}}</ion-option>
+                
+                </ion-select>
+        </ion-item>
+         <ion-item>
+            <ion-label>🤓 Member</ion-label>
+            <ion-select [(ngModel)]="reminder.Con" multiple>
+               
+                 <ion-option  *ngFor="let name of contact" [value] = "name.Name" checked="false">{{name.Name}}</ion-option>
+               
+            </ion-select>
+        </ion-item>
+
+
+    </ion-list>
+    <button ion-button block (click)="save()">Save</button>
+</ion-content>

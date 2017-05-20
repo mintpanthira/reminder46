@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button clear small navPop>
+      <ion-icon name="arrow-back" class="icon ion-home custom-icon"></ion-icon>
+    </button>
+     <ion-title>{{ action }} 📝</ion-title>
+    <ion-buttons end *ngIf="!isNew">
+      <button ion-button (click)="delete()">
+          <ion-icon name="trash" class="icon ion-home custom-icon"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="background">  
+        <ion-item >
+            <div>📚 SubjectName:   {{ reminder.Name }}</div>
+        </ion-item>
+        <ion-item>
+            <div>📅 Deadline: {{ reminder.Date | date:'yMMMMd' }}</div>
+        </ion-item>
+        <ion-item no-lines>
+            <div>📃 Description:</div>
+        </ion-item>
+        <ion-item>
+            <ion-textarea text-left type="text" [(ngModel)]="reminder.Name2" disabled></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <div>🗂 Category:  {{ reminder.Cat }}</div>
+        </ion-item>
+        <ion-item>
+            <div>🤓 Member:  {{ reminder.Con }}</div>
+        </ion-item>
+</ion-content>

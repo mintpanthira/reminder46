@@ -1,0 +1,31 @@
+<ion-header>  
+  <ion-navbar>
+      <button ion-button clear small navPop>
+      <ion-icon name="arrow-back" class="icon ion-home custom-icon"></ion-icon>
+    </button>
+    <ion-title>Edit Contact</ion-title>
+    <ion-buttons end *ngIf="!isNew">
+      <button ion-button (click)="delete()">
+          <ion-icon name="trash"  class="icon ion-home custom-icon"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>  
+      <ion-list>
+        <ion-item>
+            <ion-label>🏷 Name:</ion-label>
+            <ion-input text-right type="text" [(ngModel)]="contact.Name"></ion-input>
+      </ion-item>
+        <ion-item>
+            <ion-label>🏫 School/University: </ion-label>
+            <ion-input text-right type="text" [(ngModel)]="contact.Place"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>👫 Relationship:</ion-label>
+            <ion-input text-right type="text" [(ngModel)]="contact.Relation"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block (click)="save()">Save</button>
+</ion-content> 
